@@ -2,10 +2,15 @@ const express = require("express");
 
 //Ghi log
 const morgan = require("morgan");
+
+// Ngăn chặn bên thứ 3 truy cập vào
+const { default: helmet } = require("helmet");
+
 const app = express();
 
 // Init Middleware
 app.use(morgan("dev"));
+app.use(helmet());
 
 // Init DB
 
