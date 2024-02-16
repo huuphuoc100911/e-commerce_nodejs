@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 
 //Ghi log
 const morgan = require("morgan");
@@ -6,6 +7,7 @@ const morgan = require("morgan");
 // Ngăn chặn bên thứ 3 truy cập vào
 const { default: helmet } = require("helmet");
 
+// Giảm dung lượng response
 const compression = require("compression");
 
 const app = express();
@@ -25,7 +27,7 @@ app.get("/", (req, res, next) => {
     const strCompress = "Hello";
     return res.status(200).json({
         message: "Welcome",
-        metadata: strCompress.repeat(10000),
+        metadata: strCompress.repeat(10),
     });
 });
 
